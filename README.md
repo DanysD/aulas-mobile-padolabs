@@ -1,2 +1,2 @@
 # aulas-mobile-padolabs
-Aluna: <Danielly Alves>
+Aluna: Danielly Alves
