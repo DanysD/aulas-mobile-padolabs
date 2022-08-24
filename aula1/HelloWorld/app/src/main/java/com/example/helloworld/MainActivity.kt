@@ -11,7 +11,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        var editName = findViewById<EditText>(R.id.editName)
+        val editName = findViewById<EditText>(R.id.editName)
         val txtmessage = findViewById<TextView>(R.id.txtmessage)
         val btnOK = findViewById<Button>(R.id.btnOk)
 
