@@ -11,22 +11,30 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val editTextPeso = findViewById<EditText>(R.id.editTextPeso)
-        val editTextAltura = findViewById<EditText>(R.id.editTextAltura)
+        val peso = findViewById<EditText>(R.id.peso)
+        val altura = findViewById<EditText>(R.id.altura)
+        val calcular = findViewById<Button>(R.id.calcular)
         val resultado = findViewById<TextView>(R.id.resultado)
-        val buttonCalcular = findViewById<Button>(R.id.buttonCalcular)
 
-        buttonCalcular.setOnClickListener {
-            if(editTextPeso.text.isEmpty()){
-                resultado.setText("Please, inform your peso!!!")
-            }
-            else if(editTextAltura.text.isEmpty()) {
-                resultado.setText("Please, inform your peso!!!")
-            }
-            else{
-                resultado.setText("ola" + editTextAltura.text.trim())
+
+        calcular.setOnClickListener {
+            val Altura = altura.text.toString().toDouble()
+            val Peso = peso.text.toString().toDouble()
+
+            val imc = (Peso/(Altura*Altura))
+            val imcf = "%.2f".format(imc)
+
+            if (imc < 19) {
+                resultado.setText("Seu imc é =" + imcf + "Peso Baixo")
+            } else if (imc >= 19 && imc < 24.9) {
+                resultado.setText("Seu imc é =" +imcf + "Peso normal")
+            } else if (imc >=25 && imc <= 29.9) {
+                resultado.setText("Seu imc é =" + imcf + "Pré Obesidade")
+            } else if (imc >= 30 && imc <= 34.9) {
+                resultado.setText("Seu imc é = "+ imcf + "Obesidade")
+            } else if (imc >= 35 && imc <= 39.9) {
+                resultado.setText("Seu imc é =" + imcf + "Obesidade grave")
             }
         }
     }
-
 }
